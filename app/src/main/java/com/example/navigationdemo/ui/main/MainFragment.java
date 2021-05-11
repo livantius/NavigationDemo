@@ -31,9 +31,16 @@ public class MainFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        // TODO: Use the ViewModel
+        super.onActivityCreated(savedInstanceState);//mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        Button button = getView().findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.mainToSecond);
+            }
+        });
     }
+
 
 }
